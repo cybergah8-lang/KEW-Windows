@@ -1,0 +1,47 @@
+{
+  "name": "kew-windows",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Kew — anonymous, free video downloader for Windows. Cybergah Group (cybergah.com)",
+  "author": "Cybergah Group <info@cybergah.com>",
+  "license": "GPL-3.0-or-later",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite build && electron .",
+    "electron": "electron .",
+    "dist": "vite build && electron-builder --win"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  },
+  "build": {
+    "appId": "com.cybergah.kew",
+    "productName": "Kew",
+    "directories": { "output": "release" },
+    "files": ["dist/**", "electron/**"],
+    "extraResources": [{ "from": "resources", "to": "resources" }],
+    "win": {
+      "target": ["portable", "nsis"],
+      "icon": "resources/icon.ico"
+    },
+    "portable": { "artifactName": "Kew-${version}-portable.exe" },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "Kew-Setup-${version}.exe"
+    }
+  }
+}

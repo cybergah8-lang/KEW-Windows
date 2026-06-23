@@ -1,0 +1,12 @@
+node_modules
+dist
+release
+.nsis
+*.log
+*.exe
+*.7z
+*.zip
+# bundled engines — fetched via tools/fetch-resources.ps1 (too large for git)
+resources/yt-dlp.exe
+resources/ffmpeg.exe
+.DS_Store
